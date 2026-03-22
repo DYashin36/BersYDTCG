@@ -1,0 +1,15 @@
+<div *ngIf="state$ | async as state">
+
+  <!-- затемнение -->
+  <div class="overlay" *ngIf="state.visible" (click)="close()"></div>
+
+  <!-- шторка -->
+  <div class="drawer" [class.open]="state.visible">
+
+    <button class="close-btn" (click)="close()">Закрыть</button>
+
+    <img *ngIf="state.image" [src]="state.image" class="big-image"/>
+
+  </div>
+
+</div>

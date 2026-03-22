@@ -1,0 +1,25 @@
+.board {
+  width: 100vw;
+  height: 100vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ВАЖНО: сетка вписывается в экран */
+.grid {
+  display: grid;
+
+  width: min(100vw, calc(100vh * (5 / 6)));
+  height: min(100vh, calc(100vw * (6 / 5)));
+
+  grid-template-rows: repeat(6, 1fr);
+  gap: 8px;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 8px;
+}

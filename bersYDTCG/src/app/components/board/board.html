@@ -1,0 +1,12 @@
+<div class="board">
+  <div class="grid">
+    <div class="row" *ngFor="let row of grid; let r = index">
+      <app-card
+        *ngFor="let col of row; let c = index"
+        [image]="getImagePath(r, c)"
+        [row]="r"
+        [isFlipped]="r < 3">
+      </app-card>
+    </div>
+  </div>
+</div>
