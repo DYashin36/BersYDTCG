@@ -1,15 +1,37 @@
 <div *ngIf="state$ | async as state">
-
-  <!-- затемнение -->
   <div class="overlay" *ngIf="state.visible" (click)="close()"></div>
 
-  <!-- шторка -->
   <div class="drawer" [class.open]="state.visible">
-
     <button class="close-btn" (click)="close()">Закрыть</button>
 
-    <img *ngIf="state.image" [src]="state.image" class="big-image"/>
+    <img *ngIf="state.image" [src]="state.image" class="big-image" />
 
+    <!-- АДЕЙ -->
+    <div
+      class="actions"
+      *ngIf="state.row !== null && state.row >= 3 && state.row <= 6 && state.actions.length"
+    >
+      <button
+        *ngFor="let action of state.actions"
+        class="action-btn"
+        (click)="runAction(action)"
+      >
+        {{ action.name }}
+      </button>
+    </div>
+
+    <!-- СПОСОБНОСТИ -->
+    <div
+      class="actions"
+      *ngIf="state.row !== null && state.row >= 3 && state.row <= 6 && state.abilities.length"
+    >
+      <button
+        *ngFor="let ability of state.abilities"
+        class="action-btn"
+        (click)="runAbility(ability)"
+      >
+        {{ ability.name }}
+      </button>
+    </div>
   </div>
-
 </div>

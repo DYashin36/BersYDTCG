@@ -1,6 +1,13 @@
 <div class="card-container"
-     (click)="onRightClick($event)"
+     (contextmenu)="onRightClick($event)"
      [style.transform]="'rotate(' + totalRotation + 'deg)'">
 
-  <img [src]="image" class="card-image"/>
+  <ng-container *ngIf="cell; else empty">
+    <img [src]="image" class="card-image"/>
+  </ng-container>
+
+  <ng-template #empty>
+    <div class="card-empty"></div>
+  </ng-template>
+
 </div>

@@ -7,7 +7,6 @@
   align-items: center;
 }
 
-/* ВАЖНО: сетка вписывается в экран */
 .grid {
   display: grid;
 
